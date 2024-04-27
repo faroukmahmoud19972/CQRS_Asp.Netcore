@@ -7,6 +7,8 @@ global using MediatR;
 global using Microsoft.Extensions.DependencyInjection;
 global using Ecommerce.Application.Features.Categories.Requests.Query;
 global using Ecommerce.Application.Presistance.Contracts;
+global using FluentValidation;
+
 
 
 

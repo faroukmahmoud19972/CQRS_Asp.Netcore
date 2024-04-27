@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ecommerce.Application.Features.Categories.Requests.Command
+namespace Ecommerce.Application.Features.Products.Requests.Command
 {
     public class DeleteProductCommand : IRequest
     {

@@ -1,4 +1,6 @@
-﻿namespace Ecommerce.Application.Features.Categories.Handlers.Query
+﻿using Ecommerce.Application.DTOs.EntitiesDTO.Category;
+
+namespace Ecommerce.Application.Features.Categories.Handlers.Query
 {
     public class GetAllCategoriesHandler : IRequestHandler<GetAllCategoriesRequest, List<CategoryDTO>>
     {

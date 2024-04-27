@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ecommerce.Application.DTOs.EntitiesDTO
+namespace Ecommerce.Application.DTOs.EntitiesDTO.Product
 {
     public class ProductDTO : BaseDTO<int>
     {
         public string Name { get; set; }
         public decimal Price { get; set; }
+        public int CategoryId { get; set; }
     }
 }

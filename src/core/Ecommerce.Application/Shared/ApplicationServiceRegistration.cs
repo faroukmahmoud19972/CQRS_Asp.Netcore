@@ -4,12 +4,11 @@
     {
         public static void ConfigureApplicatonService(this IServiceCollection service)
         {
-            //Configure AutoMapper && mediator
+            //Configure AutoMapper && mediator && Fluent Validation : 
+
             service.AddAutoMapper(typeof(CategoryMappingProfile));
             service.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
-
-            //services.AddAutoMapper(typeof(ProductMappingProfile));
-
+            service.AddValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
         }
 
     }

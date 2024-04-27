@@ -1,4 +1,7 @@
-﻿namespace Ecommerce.Application.MappingProfiles
+﻿using Ecommerce.Application.DTOs.EntitiesDTO.Category;
+using Ecommerce.Application.DTOs.EntitiesDTO.Product;
+
+namespace Ecommerce.Application.MappingProfiles
 {
     public class CategoryMappingProfile : Profile
     {

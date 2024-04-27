@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ecommerce.Application.DTOs.EntitiesDTO.Category;
 
 namespace Ecommerce.Application.Features.Categories.Handlers.Query
 {
-    public class GetCategoryDetailsHandler : IRequestHandler<GetCategoryDetailsRequest, CategoryDTO>
+    public class GetProductDetailsHandler : IRequestHandler<GetCategoryDetailsRequest, CategoryDTO>
     {
         private readonly ICategoryRepository _repository;
         private readonly IMapper _mapper;
 
-        public GetCategoryDetailsHandler(ICategoryRepository repository , IMapper mapper)
+        public GetProductDetailsHandler(ICategoryRepository repository , IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;

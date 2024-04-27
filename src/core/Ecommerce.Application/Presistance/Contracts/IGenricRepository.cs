@@ -14,5 +14,6 @@ namespace Ecommerce.Application.Presistance.Contracts
         Task DeleteAsync(int id);
         Task UpdateAsync(T entity);
         Task SaveChangesAsync();
+        Task<bool> Exist (int id);  
     }
 }

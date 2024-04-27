@@ -6,26 +6,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ecommerce.Application.Features.Categories.Handlers.Command
+namespace Ecommerce.Application.Features.Products.Handlers.Command
 {
     public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommand>
     {
-        private readonly ICategoryRepository _repository;
+        private readonly IProductRepository _repository;
         private readonly IMapper _mapper;
 
-        public DeleteProductCommandHandler(ICategoryRepository repository , IMapper mapper)
+        public DeleteProductCommandHandler(IProductRepository repository , IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
         public async Task<Unit> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
         {
-            var oldCategory = await _repository.GetAsync(request.id);
+            var oldPorduct = await _repository.GetAsync(request.id);
 
-            if (oldCategory == null)
-                throw new NotFoundException(nameof(Category),request.id);
+            if (oldPorduct == null)
+                throw new NotFoundException(nameof(Product), request.id);
 
-            await _repository.DeleteAsync(oldCategory.id);
+            await _repository.DeleteAsync(oldPorduct.id);
 
             return Unit.Value;
 
