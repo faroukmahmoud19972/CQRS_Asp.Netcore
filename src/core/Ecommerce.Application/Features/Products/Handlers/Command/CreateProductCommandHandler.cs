@@ -1,5 +1,7 @@
 ﻿using Ecommerce.Application.DTOs.EntitiesDTO.Product.Validator;
 using Ecommerce.Application.Features.Products.Requests.Command;
+using Ecommerce.Application.Models.Email;
+using Ecommerce.Application.Presistance.Email;
 using Ecommerce.Application.Responses;
 using System;
 using System.Collections.Generic;
@@ -14,11 +16,13 @@ namespace Ecommerce.Application.Features.Products.Handlers.Command
     {
         private readonly IProductRepository _repository;
         private readonly IMapper _mapper;
+        private readonly IEmailSender _emailSender;
 
-        public CreateProductCommandHandler(IProductRepository repository, IMapper mapper)
+        public CreateProductCommandHandler(IProductRepository repository, IMapper mapper, IEmailSender emailSender)
         {
             _repository = repository;
             _mapper = mapper;
+            _emailSender = emailSender;
         }
         public async Task<BaseCommandResponse> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
@@ -39,6 +43,26 @@ namespace Ecommerce.Application.Features.Products.Handlers.Command
             response.Id = request.ProductDTO.id;
 
             await _repository.SaveAsync(product);
+
+
+            //send email new product :
+            try
+            {
+                var email = new EmailMessage
+                {
+                    To = "customer@gmail.com",
+                    Body = $" now uploading new prduct {request.ProductDTO.Name}",
+                    subject = "send email successfully"
+                };  
+               await _emailSender.SendEmail(email);
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
 
             return response;
         }
