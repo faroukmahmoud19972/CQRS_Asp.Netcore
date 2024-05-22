@@ -9,13 +9,19 @@ namespace Ecommerce.Domain.Entities
 {
     public class Product : BaseEntity<int>
     {
-        public Product(string name , string description , decimal price , int CategoryId) 
+        public Product()
         {
+            
+        }
+        public Product(int id ,string name , string description , decimal price , int categoryId) 
+        {
+            Id = id;
             Name=name;
             Description=description;
             Price=price;
-            CategoryId = CategoryId;
+            CategoryId = categoryId;
         }
+   
 
         public string Name { get; set; }
         public string Description { get; set; }

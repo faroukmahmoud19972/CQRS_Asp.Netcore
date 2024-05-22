@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ecommerce.Application.Features.Categories.Requests.Command
 {
-    public class DeleteProductCommand : IRequest
+    public class DeleteCategoryCommand : IRequest
     {
         public int id { get; set; }
     }

@@ -15,4 +15,8 @@
     <ProjectReference Include="..\..\core\Ecommerce.Domain\Ecommerce.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Configuration\Entities\NewFolder\" />
+  </ItemGroup>
+
 </Project>

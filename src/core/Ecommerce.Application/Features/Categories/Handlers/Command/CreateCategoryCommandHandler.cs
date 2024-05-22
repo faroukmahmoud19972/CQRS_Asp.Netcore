@@ -34,7 +34,7 @@ namespace Ecommerce.Application.Features.Categories.Handlers.Command
             var category = _mapper.Map<Category>(request.CategoryDTO);
             response.Success = false;
             response.Message = "Created Successfully";
-            response.Id = request.CategoryDTO.id;
+            response.Id = category.Id;
             await _repository.SaveAsync(category);
 
             return response;
